@@ -1,0 +1,21 @@
+.search-box {
+    min-width: 300px;
+    height: 30px;
+    padding: 12px;
+    font-size: 18px;
+    text-align: center;
+    border: solid 1.3px #000;
+    background-color: transparent;
+    border-radius: 4px;
+  
+    
+  }
+
+  .search-box::placeholder {
+    color: #34495e;
+    opacity: 0.7;
+  }
+
+  
+  
+  

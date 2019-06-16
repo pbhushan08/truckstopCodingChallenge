@@ -1,22 +1,29 @@
-import { FETCH_CHARACTERS, SET_CHARACTERS } from './types';
-import { API } from '../constant/api';
+import { FETCH_CHARACTERS } from './types';
+import datas from '../constant/characters.json';
 
 
 
 export function fetchCharacters() {
-    return dispatch => {
-        fetch(`${API}/people/`)
-        .then(response => response.json())
-        .then(res => res.results)
-        .then(characters =>
-            dispatch(responseCharacters(characters)));
+ console.log('ACTION',datas.characters)
+    // let names = datas.characters.map(data => data.name);
+    // let url = datas.characters.map(data => data.url);
+    // let id = url.map((u) => u.slice(0,-1).split('/people/')[1]);
+     
+    let augData = datas.characters.map(data => {
+
+        return{
+            name : data.name,
+            url : data.url,
+            id : data.url.slice(0,-1).split('/people/')[1]
+        }
+    })
+    
+    console.log('augData',augData);
+
+    return{
+        type: FETCH_CHARACTERS,
+        augData
     }
     
 };
 
-export function responseCharacters(characters){
-    return{
-        type: FETCH_CHARACTERS,
-        payload: characters
-    }
-}

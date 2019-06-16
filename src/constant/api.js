@@ -1,3 +1,1 @@
-export const API = "https://swapi.co/api";
-
-export const CHARACTERS = API + "/people/?"
+export const API_URL = 'https://swapi.co/api';

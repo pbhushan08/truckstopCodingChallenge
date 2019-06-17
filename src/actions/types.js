@@ -1,2 +1,3 @@
 export const FETCH_CHARACTERS = 'FETCH_CHARACTERS';
 export const SET_CHARACTER = 'SET_CHARACTER';
+export const FETCH_FILMS = 'FETCH_FILMS';

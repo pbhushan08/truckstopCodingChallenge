@@ -1,0 +1,11 @@
+.films {
+    position: relative;
+    right: 0;
+    left: 0;
+    width: 70%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 10px;
+    border: solid 3px;
+    border-radius: 5px;
+  }

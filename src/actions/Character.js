@@ -11,7 +11,7 @@ export function getCharacterProfile(selectedId) {
         };
       })
       .then(res => res.json())
-      .then(profile => console.log(profile));
+      .then(profile => console.log('CHARACTER ACTION',profile));
         // .then(profile => {
         //   dispatch(setCharacterProfile(profile));
         //   dispatch(getCharacterHomeworld(profile.homeworld));

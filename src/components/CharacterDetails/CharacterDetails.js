@@ -10,7 +10,7 @@ const CharacterDetails = ({ characters, fetchFilms }) => {
             <li
               key={character.name}
               onClick={click => {
-                fetchFilms(character.id, click);
+                fetchFilms(character.id, click)
               }}
             >
               {character.name}

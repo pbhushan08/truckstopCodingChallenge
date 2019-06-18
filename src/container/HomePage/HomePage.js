@@ -22,11 +22,14 @@ class HomePage extends Component {
         <img className="image" src={logo} alt="Star Wars: React App" />
 
         {this.props.films.click ? (
-          <FilmDetails films={this.props.films.films} />
+          <FilmDetails 
+          films = {this.props.films.films} 
+          fetchFilms = { this.props.fetchFilms }
+          />
         ) : (
           <CharacterDetails
-          characters={this.props.characters}
-          fetchFilms={this.props.fetchFilms}
+          characters = {this.props.characters}
+          fetchFilms = {this.props.fetchFilms}
         />
         )}
 

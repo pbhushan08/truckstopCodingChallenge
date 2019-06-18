@@ -1,11 +1,7 @@
 import React from 'react';
 import './FilmDetails.css';
-//import logo from '../../assets/logo.png';
 
-//   
-//const date = new Date((release_date + " 00:00:00")).toDateString()
-
-const filmDetails = ({films}) => (
+const filmDetails = ({ films, fetchFilms}) => (
     <div className = "list">
     <div className = "button">X</div>
     <h2>FILM DETAILS</h2>

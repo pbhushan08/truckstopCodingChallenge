@@ -11,5 +11,8 @@ body {
   font-family: arial, sans-serif;
 }
 
-
-
+@media (max-width: 400px) {
+  body {
+    background: url("https://i.imgur.com/YLtnRQ1.jpg");
+  }
+}

@@ -1,42 +1,46 @@
-import { FETCH_FILMS } from './types';
-import { API_URL } from '../constant/api';
+import { FETCH_FILMS } from "./types";
+import { API_URL } from "../constant/api";
 
 export function fetchFilms(selectedId) {
-  console.log('FETCH_FILMS')
+  console.log("FETCH_FILMS");
   return dispatch => {
-    let allFilms = [], film;
-    console.log("reached inside dispatch")
-    fetch(API_URL + '/people/' + selectedId)
-      .then(res => res.json())
-      .then(people =>{  
-        console.log(people);
-        people.films.forEach(async (f) => {
-        try {
-          console.log("reached inside foreach")
-          let response = await fetch(f);
-          film = await response.json();
-          allFilms.push(film);
-          console.log('ALL FILMS', allFilms)
-        }
-        catch (e) {
-          console.log(e);
-        }
+    console.log("reached inside dispatch");
+    fetch(API_URL + "/people/" + selectedId)
+      .then(res => {
+        if(res.status === 200)
+          return res.json()
+        else{
+        let allFilms = [{"data":"Bad Data"}]
+        dispatch({ type: FETCH_FILMS,allFilms})}
       })
-    })
+      .then(people => {
+        if(!people.status){
+        getAllFilms(people.films, dispatch)}
+        ;
+      })
       .catch(function (error) {
         if (error.response) {
-          console.log('error data: ', error.response.data);
-        };
-      })
-  dispatch({ type: FETCH_FILMS, allFilms })
+          console.log("error data: ");
+          console.log(error.response.data);
+        }
+      });
+  };
 }
-};
 
-// export function setCharacterFilms(selectedId,film) {
-//     fetchFilms(selectedId);
+async function getAllFilms(filmUrls, dispatch) {
+  let allFilms;
+  try {
+    allFilms = await Promise.all(
+      filmUrls.map(film => {
+        // console.log(film);
+        return fetch(film)
+          .then(res => res.json())
+          .catch(c => console.log(c.response.data));
+      })
+    );
+  } catch (c) {
+    console.log(c);
+  }
 
-//     return {
-//         type: FETCH_FILMS,
-//         film
-//     }
-// }
+  dispatch({ type: FETCH_FILMS, allFilms });
+}

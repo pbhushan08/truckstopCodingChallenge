@@ -1,2 +1,3 @@
 export const FETCH_CHARACTERS = "FETCH_CHARACTERS";
 export const FETCH_FILMS = "FETCH_FILMS";
+export const FETCH_ERROR = "FETCH_ERROR";

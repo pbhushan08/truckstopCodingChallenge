@@ -1,8 +1,9 @@
 import { FETCH_CHARACTERS } from "./types";
 import datas from "../constant/characters.json";
 
+//Fetching data from the JSON file for Character Names.
 export function fetchCharacters() {
-  console.log("ACTION", datas.characters);
+  //console.log("ACTION", datas.characters);
   let augData = datas.characters.map(data => {
     return {
       name: data.name,
@@ -11,7 +12,7 @@ export function fetchCharacters() {
     };
   });
 
-  console.log("augData", augData);
+  //console.log("augData", augData);
 
   return {
     type: FETCH_CHARACTERS,

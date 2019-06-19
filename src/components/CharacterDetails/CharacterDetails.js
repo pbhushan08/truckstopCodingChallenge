@@ -1,6 +1,7 @@
 import React from "react";
 import "./CharacterDetails.css";
 
+// Component to diplay the Character names.
 const CharacterDetails = ({ characters, fetchFilms }) => {
   return (
     <section className="characters-section">
@@ -10,7 +11,7 @@ const CharacterDetails = ({ characters, fetchFilms }) => {
             <li
               key={character.name}
               onClick={click => {
-                fetchFilms(character.id, click)
+                fetchFilms(character.id, click = "Films")
               }}
             >
               {character.name}
